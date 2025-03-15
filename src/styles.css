@@ -1,3 +1,8 @@
+h1 {
+    display: flex;
+    justify-content: center;
+}
+
 nav {
     border-bottom: 2px solid #ccc;
     padding-bottom: 10px;
@@ -24,8 +29,11 @@ nav li {
     list-style: none;
     padding: 0;
     display: flex;
-    gap: 20px;
-    justify-content: center;
+    gap: 5px;
+    justify-content: left;
+    flex-wrap: wrap;
+    padding-inline-start: 20px;
+    /* list-style-type: disc; */
 }
 
 a {
@@ -47,8 +55,19 @@ nav i {
 
 section li:not(:last-child)::after {
     content: "|";
-    margin-left: 15px;
-    color: #666;
+    margin-left: 5px;
+}
+
+nav ul li:nth-child(even) a span {
+    text-decoration: none; /* Sublinhado para os itens pares */
+}
+
+nav ul li:nth-child(odd)  a span {
+    text-decoration: underline; /* Sem sublinhado para os itens ímpares */
+}
+
+.fab {
+    text-decoration: none; /* Sublinhado para os itens pares */
 }
 
 /* Linha separadora */
@@ -64,18 +83,25 @@ section li:not(:last-child)::after {
     justify-content: space-between; /* Distribui os itens nas extremidades e no centro */
     align-items: center;
     padding: 10px 20px;
+    background-color:rgb(38, 204, 9);
 }
 
 /* Ajustando centralização */
 .center {
+    text-decoration: underline;
     text-align: center;
     flex: 1; /* Faz com que o centro ocupe espaço proporcional */
+}
+
+.center:hover {
+    color: #007bff;
 }
 
 /* Mantendo largura fixa para os textos da esquerda e direita */
 .left, .right {
     width: 150px;
     text-align: left;
+    background-color: red;
 }
 
 .right {
