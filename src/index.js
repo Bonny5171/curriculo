@@ -16,6 +16,26 @@ app.get('/', (req, res) => {
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
       </head>
       <body>
+
+         <div class="menu-container" id="menuContainer">
+              <button class="menu-button" onclick="toggleMenu()">
+                  ☰ <span>🌙 <span id="mode-status">Claro</span> | 🌎 <span id="lang-status">PT</span></span>
+              </button>
+              <div class="menu" id="menu">
+                  <button onclick="toggleDarkMode(); closeMenu()">🌙 Alternar Modo</button>
+                  <button onclick="changeLanguage('pt'); closeMenu()">🇧🇷 Português</button>
+                  <button onclick="changeLanguage('en'); closeMenu()">🇺🇸 English</button>
+              </div>
+          </div>
+      
+        <!--div class="header">
+          <button onclick="toggleDarkMode()">🌙 Alternar Modo Escuro</button>
+          <div>
+          <button onclick="changeLanguage('pt')">🇧🇷 PT</button>
+          <button onclick="changeLanguage('en')">🇺🇸 EN</button>
+          </div>
+        </div-->
+        
         <h1>Luis Fernando Araujo</h1>
         
         <!-- Navegação principal -->
@@ -28,7 +48,7 @@ app.get('/', (req, res) => {
                     <i class="fab fa-whatsapp"></i> <span>98871-6005</span>
                 </a></li>
                 <li><a href="mailto:luis.city@gmail.com">
-                    <i class="fas fa-envelope"></i> <span>E-mail</span>
+                    <i class="fas fa-envelope"></i> <span>luis.city@gmail.com</span>
                 </a></li>
                 <li><a href="https://seusite.com" target="_blank">
                     <i class="fas fa-globe"></i> <span>Meu Site</span>
@@ -41,11 +61,11 @@ app.get('/', (req, res) => {
 
         <!-- Seção de frutas -->
         <section class="skills-section">
-            <h2>Skills</h2>
+            <h2 id="skill">Experience</h2>
             <ul>
                 <li>Sales Force</li>
                 <li>JavaScript</li>
-                <li>Node</li>
+                <li>NodeJS</li>
                 <li>Express</li>
                 <li>React</li>
                 <li>React-Native</li>
@@ -68,20 +88,15 @@ app.get('/', (req, res) => {
                 <li>Google Firebase</li>
                 <li>Google Cloud Platform (GCP)</li>
                 <li>CodePush</li>
-
                 <li>App Store</li>
                 <li>Google Play</li>
-
                 <li>HashiCorp Terraform</li>
                 <li>HashiCorp Vault</li>
-
                 <li>Datadog Monitoring</li>
                 <li>Mezmo Logs</li>
-
                 <li>Cloudflare</li>
                 <li>Web Application Firewall (WAF)</li>
                 <li>ASP</li>
-                <li>ASP.NET</li>
                 <li>ASP.NET MVC</li>
                 <li>C#</li>
                 <li>SQL</li>
@@ -99,7 +114,7 @@ app.get('/', (req, res) => {
 
           <div class="trampos">
             <div class="info-line">
-                <span class="left">Programador mobile & Programador backend</span>
+                <span class="left">Programador React Native & Programador Backend</span>
                 <a href="https://www.cogny.co/" target="_blank"><span class="center">CognyHub</span></a>
                 <span class="right">01/2022 -  08/2024</span>
             </div>
@@ -249,7 +264,7 @@ app.get('/', (req, res) => {
             </ul>
           </div>
 
-          <div class="trampos">
+          <!-- div class="trampos">
             <div class="info-line">
                 <span class="left">Programador</span>
                 <span class="center">Everymind</span>
@@ -262,7 +277,7 @@ app.get('/', (req, res) => {
                 <li>All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary.</li>
                 <li>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</li>
             </ul>
-          </div>
+          </div -->
 
         </section>
         
@@ -317,6 +332,65 @@ app.get('/', (req, res) => {
           </div>
         </section>
 
+        <script>
+            let lastScrollTop = 0;
+
+            window.addEventListener("scroll", function () {
+                let currentScroll = window.scrollY;
+                let menuContainer = document.getElementById("menuContainer");
+
+                if (currentScroll > lastScrollTop) {
+                    // Descendo: esconde o menu
+                    menuContainer.classList.add("hidden");
+                } else {
+                    // Subindo: exibe o menu
+                    if (currentScroll <= 50) { // Só reaparece no topo
+                        menuContainer.classList.remove("hidden");
+                    }
+                }
+                lastScrollTop = currentScroll;
+            });
+
+
+            const texts = {
+                pt: {
+                    name: "Meu Nome",
+                    job: "Desenvolvedor Web | Especialista em Frontend",
+                    description: "Tenho experiência em HTML, CSS, JavaScript e desenvolvimento de aplicações web.",
+                    skill: "habilidades",
+                    lang: "PT"
+                },
+                en: {
+                    name: "My Name",
+                    job: "Web Developer | Frontend Specialist",
+                    description: "I have experience in HTML, CSS, JavaScript, and web application development.",
+                    skill: "skill",
+                    lang: "EN"
+                }
+            };
+
+            function toggleDarkMode() {
+                document.body.classList.toggle("dark-mode");
+                const modeStatus = document.getElementById("mode-status");
+                modeStatus.textContent = document.body.classList.contains("dark-mode") ? "Escuro" : "Claro";
+            }
+
+            function changeLanguage(lang) {
+                document.getElementById("skill").textContent = texts[lang].skill;
+
+                document.getElementById("lang-status").textContent = texts[lang].lang;
+            }
+
+            function toggleMenu() {
+                let menu = document.getElementById("menu");
+                menu.classList.toggle("show");
+            }
+
+            function closeMenu() {
+                let menu = document.getElementById("menu");
+                menu.classList.remove("show");
+            }
+        </script>
       </body>
     </html>
     `);
