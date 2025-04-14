@@ -1,9 +1,42 @@
-- name: Teste SSH
-  uses: appleboy/ssh-action@v1.0.0
-  with:
-    host: ${{ secrets.SERVER_HOST }}
-    username: ${{ secrets.SERVER_USER }}
-    key: ${{ secrets.SSH_PRIVATE_KEY }}
-    debug: true
-    script: |
-      echo "Conexão OK"
+# .github/workflows/deploy.yml
+name: CI/CD
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Teste SSH
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          debug: true
+          script: |
+            echo "Conexão OK"
+
+      # - name: Clone repositório
+      #   uses: actions/checkout@v3
+
+      # - name: Build Docker image
+      #   run: docker build -t meuapp:latest .
+
+      # - name: Deploy via SSH
+      #   uses: appleboy/ssh-action@v1.0.0
+      #   with:
+      #     host: ${{ secrets.SERVER_HOST }}
+      #     username: ${{ secrets.SERVER_USER }}
+      #     key: ${{ secrets.SSH_PRIVATE_KEY }}
+      #     script: |
+      #       docker stop meuapp || true
+      #       docker rm meuapp || true
+      #       docker rmi meuapp || true
+      #       cd /caminho/para/app
+      #       git pull origin main
+      #       docker build -t meuapp:latest .
+      #       docker run -d --name meuapp -p 3000:3000 meuapp:latest
