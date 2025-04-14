@@ -26,7 +26,7 @@ jobs:
             docker stop curriculo-app || true
             docker rm curriculo-app || true
             docker rmi curriculo-app || true
-            cd /caminho/para/app
+            cd ~/documents/curriculo-app
             git pull origin main
             docker build -t curriculo-app:latest .
             docker run -d --name curriculo-app -p 3000:3000 curriculo-app:latest
