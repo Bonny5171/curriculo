@@ -18,15 +18,13 @@ jobs:
           echo "USER: ${{ secrets.SERVER_USER }}"
           echo "1 USER: $SERVER_HOST"
 
-      - name: Teste SSH
-        uses: appleboy/ssh-action@v1.0.0
+      - name: SSH Deploy
+        uses: garygrossgarten/github-action-ssh@0.7.0
         with:
+          command: echo "Conectado!"
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USER }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          debug: true
-          script: |
-            echo "Conexão OK"
+          privateKey: ${{ secrets.SSH_PRIVATE_KEY }}
 
 
       # - name: Clone repositório
