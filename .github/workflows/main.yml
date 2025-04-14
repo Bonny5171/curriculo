@@ -18,10 +18,10 @@ jobs:
           echo "USER: ${{ secrets.SERVER_USER }}"
           echo "1 USER: $SERVER_HOST"
 
-      - name: Testa conexão com netcat
-        run: |
-          sudo apt-get install -y netcat
-          nc -zv ${{ secrets.SERVER_HOST }} 22 || echo "Porta 22 não está acessível"
+      # - name: Testa conexão com netcat
+      #   run: |
+      #     sudo apt-get install -y netcat
+      #     nc -zv ${{ secrets.SERVER_HOST }} 22 || echo "Porta 22 não está acessível"
 
       - name: Teste SSH
         uses: appleboy/ssh-action@v1.0.0
