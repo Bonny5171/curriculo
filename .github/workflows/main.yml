@@ -1,4 +1,3 @@
-# .github/workflows/deploy.yml
 name: CI/CD
 
 on:
@@ -8,6 +7,7 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    environment: production
 
     steps:
       - name: Debug envs
@@ -18,6 +18,11 @@ jobs:
           echo "USER: ${{ secrets.SERVER_USER }}"
           echo "1 USER: $SERVER_HOST"
 
+      - name: Testa conexão com netcat
+        run: |
+          sudo apt-get install -y netcat
+          nc -zv ${{ secrets.SERVER_HOST }} 22 || echo "Porta 22 não está acessível"
+
       - name: Teste SSH
         uses: appleboy/ssh-action@v1.0.0
         with:
@@ -27,6 +32,7 @@ jobs:
           debug: true
           script: |
             echo "Conexão OK"
+
 
       # - name: Clone repositório
       #   uses: actions/checkout@v3
