@@ -18,41 +18,36 @@ jobs:
           echo "USER: ${{ secrets.SERVER_USER }}"
           echo "1 USER: $SERVER_HOST"
 
-      # - name: Testa conexão com netcat
-      #   run: |
-      #     sudo apt-get install -y netcat
-      #     nc -zv ${{ secrets.SERVER_HOST }} 22 || echo "Porta 22 não está acessível"
-
-      # - name: Teste SSH
-      #   uses: appleboy/ssh-action@v1.0.0
-      #   with:
-      #     host: ${{ secrets.SERVER_HOST }}
-      #     username: ${{ secrets.SERVER_USER }}
-      #     key: ${{ secrets.SSH_PRIVATE_KEY }}
-      #     passphrase: ${{ secrets.SSH_PASSPHRASE }}
-      #     debug: true
-      #     script: |
-      #       echo "Conexão OK"
-
-
-      - name: Clone repositório
-        uses: actions/checkout@v3
-
-      - name: Build Docker image
-        run: docker build -t meuapp:latest .
-
-      - name: Deploy via SSH
+      - name: Teste SSH
         uses: appleboy/ssh-action@v1.0.0
         with:
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           passphrase: ${{ secrets.SSH_PASSPHRASE }}
+          debug: true
           script: |
-            docker stop meuapp || true
-            docker rm meuapp || true
-            docker rmi meuapp || true
-            cd /home/kali/Projects/curriculo-app
-            git pull origin main
-            docker build -t meuapp:latest .
-            docker run -d --name meuapp -p 3000:3000 meuapp:latest
+            echo "Conexão OK"
+
+
+      # - name: Clone repositório
+      #   uses: actions/checkout@v3
+
+      # - name: Build Docker image
+      #   run: docker build -t meuapp:latest .
+
+      # - name: Deploy via SSH
+      #   uses: appleboy/ssh-action@v1.0.0
+      #   with:
+      #     host: ${{ secrets.SERVER_HOST }}
+      #     username: ${{ secrets.SERVER_USER }}
+      #     key: ${{ secrets.SSH_PRIVATE_KEY }}
+      #     passphrase: ${{ secrets.SSH_PASSPHRASE }}
+      #     script: |
+      #       docker stop meuapp || true
+      #       docker rm meuapp || true
+      #       docker rmi meuapp || true
+      #       cd /home/kali/Projects/curriculo-app
+      #       git pull origin main
+      #       docker build -t meuapp:latest .
+      #       docker run -d --name meuapp -p 3000:3000 meuapp:latest
