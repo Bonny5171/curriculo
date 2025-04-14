@@ -26,6 +26,7 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           privateKey: ${{ secrets.SSH_PRIVATE_KEY }}
 
+          
 
       # - name: Clone repositório
       #   uses: actions/checkout@v3
