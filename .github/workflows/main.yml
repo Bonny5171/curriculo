@@ -11,9 +11,12 @@ jobs:
 
     steps:
       - name: Debug envs
+        env:
+          SERVER_HOST: ${{ secrets.SERVER_HOST }}
         run: |
           echo "HOST: ${{ secrets.SERVER_HOST }}"
           echo "USER: ${{ secrets.SERVER_USER }}"
+          echo "1 USER: $SERVER_HOST"
 
       - name: Teste SSH
         uses: appleboy/ssh-action@v1.0.0
