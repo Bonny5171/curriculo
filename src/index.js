@@ -29,6 +29,17 @@ app.get('/short', (req, res) => {
   });
 });
 
+app.get('/gpt', (req, res) => {
+  const filePath = path.join(__dirname, 'index_gpt.html');
+  fs.readFile(filePath, 'utf8', (err, data) => {
+    if (err) {
+      return res.status(500).send('Erro ao ler o arquivo');
+    }
+
+    res.send(data);
+  });
+});
+
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });

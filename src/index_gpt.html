@@ -1,0 +1,304 @@
+<html>
+
+<head>
+  <title>iBonny RedTeam</title>
+  <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/7710/7710428.png">
+  <!-- <link rel="stylesheet" href="/styles.css"> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<style>
+  :root {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+  }
+
+  body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      transition: background-color 0.3s, color 0.3s;
+  }
+
+  .dark-mode {
+      --bg-color: #121212;
+      --text-color: #ffffff;
+  }
+  
+  .info-line {
+    padding-left: 20px;
+  }
+
+
+  nav a:hover {
+    color: #007bff;
+  }
+
+  nav i {
+    font-size: 20px;
+  }
+
+  nav ul li:nth-child(even) a span {
+    text-decoration: none; /* Sublinhado para os itens pares */
+  }
+
+  nav ul li:nth-child(odd)  a span {
+    text-decoration: underline; /* Sem sublinhado para os itens ímpares */
+  }
+
+  nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  nav li {
+    display: inline;
+  }
+
+  /*nav {
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 10px;
+  }*/
+
+  h1 {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .skills-section ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 5px;
+    justify-content: left;
+    flex-wrap: wrap;
+    padding-inline-start: 20px;
+  }
+
+  /* Usando Flexbox para alinhar os textos */
+  .info-line {
+    display: flex;
+    justify-content: space-between; /* Distribui os itens nas extremidades e no centro */
+    align-items: center;
+    padding: 10px 20px;
+  }
+
+  /* Ajustando centralização */
+  .center {
+    cursor: pointer;
+    text-decoration: underline;
+    text-align: center;
+    flex: 1; /* Faz com que o centro ocupe espaço proporcional */
+  }
+
+  .center:hover {
+    color: #007bff;
+  }
+
+  /* Mantendo largura fixa para os textos da esquerda e direita */
+  .left, .right {
+    width: 250px;
+    text-align: left;
+  }
+
+  .right {
+    text-align: right;
+  }
+
+
+</style>
+
+<body class="dark-mode">
+
+  <div class="menu-container" id="menuContainer">
+    <div class="menu" id="menu">
+      <button onclick="toggleDarkMode(); closeMenu()">🌙 Alternar Modo</button>
+      <button onclick="changeLanguage('pt'); closeMenu()">🇧🇷 Português</button>
+      <button onclick="changeLanguage('en'); closeMenu()">🇺🇸 English</button>
+      <button class="menu-button" onclick="toggleMenu()">
+        <span id="mode-status">Escuro</span> | 🌎 <span id="lang-status">PT</span></span>
+      </button>
+    </div>
+  </div>
+
+  <h1>Luis Fernando Araujo</h1>
+
+  <!-- Navegação principal -->
+  <nav>
+    <ul>
+      <li><a href="https://www.linkedin.com/in/luis-fernando-araujo-20532131/" target="_blank">
+          <i class="fab fa-linkedin"></i> <span>LinkedIn</span>
+        </a></li>
+      <li><a href="https://wa.me/5511988716005" target="_blank">
+          <i class="fab fa-whatsapp"></i> <span>98871-6005</span>
+        </a></li>
+      <li><a href="mailto:luis.city@gmail.com">
+          <i class="fas fa-envelope"></i> <span>luis.city@gmail.com</span>
+        </a></li>
+      <li><a href="https://seusite.com" target="_blank">
+          <i class="fas fa-globe"></i> <span>Meu Site</span>
+        </a></li>
+      <li><a href="https://github.com/Bonny5171" target="_blank">
+          <i class="fab fa-github"></i> <span>Github</span>
+        </a></li>
+    </ul>
+  </nav>
+
+  <section class="skills-section">
+    <h2 id="skill">About Me</h2>
+    <ul>
+      <li>Desenvolvedor Full-Stack com +7 anos de experiência, especializado em **aplicações móveis e web**, com forte atuação em **React Native**, **Node.js**, **Firebase**, **PostgreSQL** e **GCP**. Experiência com apps B2B e B2C de grande escala. Busco oportunidades desafiadoras em ambientes inovadores com foco em qualidade e entrega de valor.</li>
+    </ul>
+  </section>
+  
+  <section class="skills-section">
+    <h2 id="skill">Skills</h2>
+    <ul>
+      <li>**Frontend:** React, React Native, Expo, Redux, Angular, Electron, jQuery</li>
+      <li>**Backend:** Node.js, Express, API REST, Firebase Functions, ASP.NET MVC, C#</li>
+      <li>**Mobile:** CodePush, App Store, Google Play, Appium</li>
+      <li>**Banco de Dados:** PostgreSQL, SQLite, Firestore (NoSQL), SQL Server</li>
+      <li>**Cloud / DevOps:** Google Cloud (GCP), Firebase, Heroku, Terraform, Vault, Cloudflare</li>
+      <li>**Testes:** Jest, Appium, React Testing Library</li>
+      <li>**Ferramentas:** Git, Jira, Trello, Notion, Figma</li>
+      <li>**Idiomas:** Português (nativo), Inglês (intermediário)</li>
+    </ul>
+  </section>
+
+  <section class="info-section">
+    <h2>Experience</h2>
+
+    <div class="trampos">
+      <div class="info-line">
+        <span class="left">Programador React Native & Programador Backend</span>
+        <span class="center" onclick="window.open('https://www.cogny.co/', '_blank');">CognyHub</span>
+        <span class="right">01/2022 - 08/2024</span>
+      </div>
+      <ul>
+        <li>Manutenção e evolução de apps móveis B2C para clubes como Palmeiras e Orlando City.</li>
+        <li>Stack: React Native, Firebase (Auth, Firestore, Storage, FCM), GCP.</li>
+        <li>Publicações na Play Store e App Store + CodePush.</li>
+        <li>Integração de APIs REST, desenvolvimento de backends seguros e escaláveis em Node.js.</li>
+        <li>Mentoria de engenheiros juniores e participação ativa em code reviews.</li>
+      </ul>
+    </div>
+
+
+    <div class="trampos">
+      <div class="info-line">
+        <span class="left">Programador Mobile</span>
+        <span class="center" onclick="window.open('https://everymind.uol/en/home/', '_blank');">Everymind</span>
+        <span class="right">08/2018 - 12/2021</span>
+      </div>
+      <ul>
+        <li>Criação de apps B2B offline-first multiplataforma.</li>
+        <li>Utilização de SQLite, React Native, Redux e Appium.</li>
+        <li>Interface com APIs externas, protótipos no Figma, testes unitários e E2E.</li>
+      </ul>
+    </div>
+
+    <div class="trampos">
+      <div class="info-line">
+        <span class="left">Programador</span>
+        <span class="center" onclick="window.open('https://www.d1solucoes.com.br/', '_blank');">Dalla Soluções</span>
+        <span class="right">02/2016 - 10/2017</span>
+      </div>
+      <ul>
+        <li>Desenvolvimento de chats, bots, widgets e APIs REST.</li>
+        <li>Integrações com fornecedores e suporte a sistemas existentes.</li>
+      </ul>
+    </div>
+
+  </section>
+
+  <section class="info-section">
+    <h2>Education</h2>
+
+    <div class="trampos">
+      <div class="info-line">
+        <span class="left">Ciência da Computação</span>
+        <span class="center" onclick="window.open('https://unip.br', '_blank');">Universidade Paulista UNIP</span>
+        <span class="right">2002 - 2005</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="info-section">
+    <h2>Projects</h2>
+
+    <div class="trampos">
+      <ul>
+        <li>**App Giro Sou Clamper** – App oficial para clube de relacionamento.</li>
+        <li>**Apps do Palmeiras / Cruzeiro / Orlando City** – Aplicativos oficiais integrados ao Salesforce.</li>
+        <li>**TeamUp** – App B2B offline-first com catálogo e estoque para grandes marcas.</li>
+        <li>**PediGrendene** – App de pedidos offline-first para representantes da Grendene.</li>
+      </ul>
+    </div>
+  </section>
+
+  <script>
+    let lastScrollTop = 0;
+
+    window.addEventListener("scroll", function () {
+      let currentScroll = window.scrollY;
+      let menuContainer = document.getElementById("menuContainer");
+
+      if (currentScroll > lastScrollTop) {
+        // Descendo: esconde o menu
+        menuContainer.classList.add("hidden");
+      } else {
+        // Subindo: exibe o menu
+        if (currentScroll <= 50) { // Só reaparece no topo
+          menuContainer.classList.remove("hidden");
+        }
+      }
+      lastScrollTop = currentScroll;
+    });
+
+
+    const texts = {
+      pt: {
+        name: "Meu Nome",
+        job: "Desenvolvedor Web | Especialista em Frontend",
+        description: "Tenho experiência em HTML, CSS, JavaScript e desenvolvimento de aplicações web.",
+        skill: "Habilidades",
+        lang: "PT"
+      },
+      en: {
+        name: "My Name",
+        job: "Web Developer | Frontend Specialist",
+        description: "I have experience in HTML, CSS, JavaScript, and web application development.",
+        skill: "Skill",
+        lang: "EN"
+      }
+    };
+
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+      const modeStatus = document.getElementById("mode-status");
+      modeStatus.textContent = document.body.classList.contains("dark-mode") ? "Escuro" : "Claro";
+    }
+
+    function changeLanguage(lang) {
+      document.getElementById("skill").textContent = texts[lang].skill;
+
+      document.getElementById("lang-status").textContent = texts[lang].lang;
+    }
+
+    function toggleMenu() {
+      let menu = document.getElementById("menu");
+      menu.classList.toggle("show");
+    }
+
+    function closeMenu() {
+      let menu = document.getElementById("menu");
+      menu.classList.remove("show");
+    }
+  </script>
+</body>
+
+</html>
