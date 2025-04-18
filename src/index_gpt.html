@@ -3,14 +3,27 @@
 <head>
   <title>iBonny RedTeam</title>
   <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/7710/7710428.png">
-  <!-- <link rel="stylesheet" href="/styles.css"> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <meta name="description" content="Currículo de Luis Fernando Araujo, desenvolvedor full-stack com foco em mobile e cloud.">
+  <!-- <link rel="stylesheet" href="/styles.css"> -->
 </head>
 
 <style>
+  @media (max-width: 768px) {
+    .info-line {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .left, .center, .right {
+      width: 100%;
+      text-align: left;
+    }
+  }
+  
   :root {
-    --bg-color: #ffffff;
-    --text-color: #000000;
+    --bg-color: #f0f0f0;
+    --text-color: #0e0e0e;
   }
 
   body {
@@ -21,10 +34,28 @@
       transition: background-color 0.3s, color 0.3s;
   }
 
-  .dark-mode {
+  /*.dark-mode {
       --bg-color: #121212;
       --text-color: #ffffff;
+  }*/
+
+  .dark-mode {
+    --bg-color: #1c1c1e; /* fundo mais elegante, quase preto */
+    --text-color: #f2f2f7; /* texto cinza bem claro, não branco puro */
+    --highlight-color: #0a84ff; /* azul padrão do iOS */
+  
+    background-color: var(--bg-color);
+    color: var(--text-color);
   }
+  
+  .dark-mode nav a:hover {
+    color: var(--highlight-color);
+  }
+  
+  .dark-mode .center:hover {
+    color: var(--highlight-color);
+  }
+  
   
   .info-line {
     padding-left: 20px;
@@ -35,21 +66,8 @@
     color: #007bff;
   }
 
-  nav i {
-    font-size: 20px;
-  }
-
-  nav ul li:nth-child(even) a span {
-    text-decoration: none; /* Sublinhado para os itens pares */
-  }
-
-  nav ul li:nth-child(odd)  a span {
-    text-decoration: underline; /* Sem sublinhado para os itens ímpares */
-  }
 
   nav ul {
-    list-style: none;
-    padding: 0;
     display: flex;
     gap: 20px;
     justify-content: center;
@@ -59,10 +77,12 @@
     display: inline;
   }
 
-  /*nav {
+  /*
+  nav {
     border-bottom: 2px solid #ccc;
     padding-bottom: 10px;
-  }*/
+  }
+  */
 
   h1 {
     display: flex;
@@ -70,13 +90,7 @@
   }
   
   .skills-section ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    gap: 5px;
-    justify-content: left;
-    flex-wrap: wrap;
-    padding-inline-start: 20px;
+    padding-inline-start: 40px;
   }
 
   /* Usando Flexbox para alinhar os textos */
@@ -109,19 +123,35 @@
     text-align: right;
   }
 
+  .info-section h2 {
+    text-transform: capitalize;
+    font-size: large;
+  }
 
+  .skills-section h2 {
+    text-transform: capitalize;
+    font-size: large;
+  }
+
+  .skills-section p {
+    padding-left: 20px;
+  }
+
+  body > nav > ul > li > a {
+    all: unset;
+    cursor: pointer;
+    /*color: green;*/
+  }
+  
 </style>
 
 <body class="dark-mode">
 
   <div class="menu-container" id="menuContainer">
     <div class="menu" id="menu">
-      <button onclick="toggleDarkMode(); closeMenu()">🌙 Alternar Modo</button>
-      <button onclick="changeLanguage('pt'); closeMenu()">🇧🇷 Português</button>
-      <button onclick="changeLanguage('en'); closeMenu()">🇺🇸 English</button>
-      <button class="menu-button" onclick="toggleMenu()">
-        <span id="mode-status">Escuro</span> | 🌎 <span id="lang-status">PT</span></span>
-      </button>
+      <button onclick="toggleDarkMode()">🌙 Alternar Modo</button>
+      <button onclick="changeLanguage('pt')">🇧🇷</button>
+      <button onclick="changeLanguage('en')">🇺🇸</button>
     </div>
   </div>
 
@@ -130,112 +160,111 @@
   <!-- Navegação principal -->
   <nav>
     <ul>
-      <li><a href="https://www.linkedin.com/in/luis-fernando-araujo-20532131/" target="_blank">
-          <i class="fab fa-linkedin"></i> <span>LinkedIn</span>
+      <li>
+        <a style="text-decoration: underline;" href="https://www.linkedin.com/in/ibonny5171" target="_blank">
+          <i class="fab fa-linkedin"></i> <span>iBonny5171</span>
         </a></li>
-      <li><a href="https://wa.me/5511988716005" target="_blank">
+      <li><a  href="https://wa.me/5511988716005" target="_blank">
           <i class="fab fa-whatsapp"></i> <span>98871-6005</span>
         </a></li>
-      <li><a href="mailto:luis.city@gmail.com">
+      <li><a style="text-decoration: underline;" href="mailto:luis.city@gmail.com">
           <i class="fas fa-envelope"></i> <span>luis.city@gmail.com</span>
         </a></li>
-      <li><a href="https://seusite.com" target="_blank">
-          <i class="fas fa-globe"></i> <span>Meu Site</span>
+      <li><a href="https://ibonny.uk/gpt" target="_blank">
+          <i class="fas fa-globe"></i> <span>iBonny.uk</span>
         </a></li>
-      <li><a href="https://github.com/Bonny5171" target="_blank">
-          <i class="fab fa-github"></i> <span>Github</span>
+      <li><a style="text-decoration: underline;" href="https://github.com/Bonny5171" target="_blank">
+          <i class="fab fa-github"></i> <span>Bonny5171</span>
         </a></li>
     </ul>
   </nav>
 
   <section class="skills-section">
-    <h2 id="skill">About Me</h2>
-    <ul>
-      <li>Desenvolvedor Full-Stack com +7 anos de experiência, especializado em **aplicações móveis e web**, com forte atuação em **React Native**, **Node.js**, **Firebase**, **PostgreSQL** e **GCP**. Experiência com apps B2B e B2C de grande escala. Busco oportunidades desafiadoras em ambientes inovadores com foco em qualidade e entrega de valor.</li>
-    </ul>
+    <h2 id="about_me">Sobre Mim</h2>
+    <p id="about_me_desc">Desenvolvedor Full-Stack com +7 anos de experiência, especializado em **aplicações móveis e web**, com forte atuação em **React Native**, **Node.js**, **Firebase**, **PostgreSQL** e **GCP**. Experiência com apps B2B e B2C de grande escala. Busco oportunidades desafiadoras em ambientes inovadores com foco em qualidade e entrega de valor.</p>
   </section>
   
   <section class="skills-section">
-    <h2 id="skill">Skills</h2>
+    <h2 id="skill">Habilidades</h2>
     <ul>
-      <li>**Frontend:** React, React Native, Expo, Redux, Angular, Electron, jQuery</li>
-      <li>**Backend:** Node.js, Express, API REST, Firebase Functions, ASP.NET MVC, C#</li>
-      <li>**Mobile:** CodePush, App Store, Google Play, Appium</li>
-      <li>**Banco de Dados:** PostgreSQL, SQLite, Firestore (NoSQL), SQL Server</li>
-      <li>**Cloud / DevOps:** Google Cloud (GCP), Firebase, Heroku, Terraform, Vault, Cloudflare</li>
-      <li>**Testes:** Jest, Appium, React Testing Library</li>
-      <li>**Ferramentas:** Git, Jira, Trello, Notion, Figma</li>
-      <li>**Idiomas:** Português (nativo), Inglês (intermediário)</li>
+      <li><strong>Frontend:</strong> React, React Native, Expo, Redux, Angular, Electron, jQuery</li>
+      <li><strong>Backend:</strong> Node.js, Express, API REST, Firebase Functions, ASP.NET MVC, C#</li>
+      <li><strong>Mobile:</strong> CodePush, App Store, Google Play, Appium</li>
+      <li><strong>Banco de Dados:</strong> PostgreSQL, SQLite, Firestore (NoSQL), SQL Server</li>
+      <li><strong>Cloud / DevOps:</strong> Google Cloud (GCP), Firebase, Heroku, Terraform, Vault, Cloudflare</li>
+      <li><strong>Testes:</strong> Jest, Appium, React Testing Library</li>
+      <li><strong>Ferramentas:</strong> Git, Jira, Trello, Notion, Figma</li>
+      <li><strong>Idiomas:</strong> Português (nativo), Inglês (intermediário)</li>
     </ul>
   </section>
 
   <section class="info-section">
-    <h2>Experience</h2>
+    <h2 id="experience">Experiência</h2>
 
     <div class="trampos">
       <div class="info-line">
-        <span class="left">Programador React Native & Programador Backend</span>
-        <span class="center" onclick="window.open('https://www.cogny.co/', '_blank');">CognyHub</span>
+        <span class="left" id="once_job">Programador React Native & Programador Backend</span>
+        <span class="center" onclick="window.open('https://www.cogny.co/', '_blank');"><strong>CognyHub</strong></span>
         <span class="right">01/2022 - 08/2024</span>
       </div>
       <ul>
-        <li>Manutenção e evolução de apps móveis B2C para clubes como Palmeiras e Orlando City.</li>
-        <li>Stack: React Native, Firebase (Auth, Firestore, Storage, FCM), GCP.</li>
-        <li>Publicações na Play Store e App Store + CodePush.</li>
-        <li>Integração de APIs REST, desenvolvimento de backends seguros e escaláveis em Node.js.</li>
-        <li>Mentoria de engenheiros juniores e participação ativa em code reviews.</li>
+        <li id="once_job_desc_1">Manutenção e evolução de apps móveis B2C para clubes como Palmeiras e Orlando City.</li>
+        <li id="once_job_desc_2">Stack: React Native, Firebase (Auth, Firestore, Storage, FCM), GCP.</li>
+        <li id="once_job_desc_3">Publicações na Play Store e App Store + CodePush.</li>
+        <li id="once_job_desc_4">Integração de APIs REST, desenvolvimento de backends seguros e escaláveis em Node.js.</li>
+        <li id="once_job_desc_5">Mentoria de engenheiros juniores e participação ativa em code reviews.</li>
       </ul>
     </div>
 
 
     <div class="trampos">
       <div class="info-line">
-        <span class="left">Programador Mobile</span>
-        <span class="center" onclick="window.open('https://everymind.uol/en/home/', '_blank');">Everymind</span>
+        <span class="left" id="twice_job">Programador Mobile</span>
+        <span class="center" onclick="window.open('https://everymind.uol/en/home/', '_blank');"><strong>Everymind</strong></span>
         <span class="right">08/2018 - 12/2021</span>
       </div>
       <ul>
-        <li>Criação de apps B2B offline-first multiplataforma.</li>
-        <li>Utilização de SQLite, React Native, Redux e Appium.</li>
-        <li>Interface com APIs externas, protótipos no Figma, testes unitários e E2E.</li>
+        <li id="twice_job_desc_1">Criação de apps B2B offline-first multiplataforma.</li>
+        <li id="twice_job_desc_2">Utilização de SQLite, React Native, Redux e Appium.</li>
+        <li id="twice_job_desc_3">Interface com APIs externas, protótipos no Figma, testes unitários e E2E.</li>
       </ul>
     </div>
 
     <div class="trampos">
       <div class="info-line">
-        <span class="left">Programador</span>
-        <span class="center" onclick="window.open('https://www.d1solucoes.com.br/', '_blank');">Dalla Soluções</span>
+        <span class="left" id="three_job">Programador</span>
+        <span class="center" onclick="window.open('https://www.d1solucoes.com.br/', '_blank');"><strong>Dalla Soluções</strong></span>
         <span class="right">02/2016 - 10/2017</span>
       </div>
       <ul>
-        <li>Desenvolvimento de chats, bots, widgets e APIs REST.</li>
-        <li>Integrações com fornecedores e suporte a sistemas existentes.</li>
+        <li id="three_job_desc_1">Desenvolvimento de chats, bots, widgets e APIs REST.</li>
+        <li id="three_job_desc_2">Integrações com fornecedores e suporte a sistemas existentes.</li>
       </ul>
     </div>
 
   </section>
 
   <section class="info-section">
-    <h2>Education</h2>
+    <h2 id="education">Formação</h2>
 
     <div class="trampos">
       <div class="info-line">
-        <span class="left">Ciência da Computação</span>
-        <span class="center" onclick="window.open('https://unip.br', '_blank');">Universidade Paulista UNIP</span>
+        <span class="left" id="education_desc">Ciência da Computação</span>
+        <span class="center" onclick="window.open('https://unip.br', '_blank');"><strong>Universidade Paulista UNIP</strong></span>
         <span class="right">2002 - 2005</span>
       </div>
     </div>
   </section>
 
   <section class="info-section">
-    <h2>Projects</h2>
+    <h2 id="projects">Projetos</h2>
 
     <div class="trampos">
       <ul>
-        <li>**App Giro Sou Clamper** – App oficial para clube de relacionamento.</li>
-        <li>**Apps do Palmeiras / Cruzeiro / Orlando City** – Aplicativos oficiais integrados ao Salesforce.</li>
-        <li>**TeamUp** – App B2B offline-first com catálogo e estoque para grandes marcas.</li>
-        <li>**PediGrendene** – App de pedidos offline-first para representantes da Grendene.</li>
+        <li><strong id="projects_desc_1_1">App Giro Sou Clamper</strong> <span id="projects_desc_1_2"> – App oficial para clube de relacionamento.</span></li>
+        <li><strong id="projects_desc_2_1">Apps do Palmeiras / Cruzeiro / Orlando City</strong> <span  id="projects_desc_2_2"> – Aplicativos oficiais integrados ao Salesforce.</span></li>
+        <li><strong id="projects_desc_3_1">TeamUp</strong> <span  id="projects_desc_3_2"> – App B2B offline-first com catálogo e estoque para grandes marcas.</span></li>
+        <li><strong id="projects_desc_4_1">PediGrendene</strong> <span  id="projects_desc_4_2"> – App de pedidos offline-first para representantes da Grendene.</span></li>
       </ul>
     </div>
   </section>
@@ -266,26 +295,115 @@
         job: "Desenvolvedor Web | Especialista em Frontend",
         description: "Tenho experiência em HTML, CSS, JavaScript e desenvolvimento de aplicações web.",
         skill: "Habilidades",
-        lang: "PT"
+        lang: "PT",
+        about_me: "Sobre Mim",
+        experience: "Experiência",
+        projects: "Projetos",
+        about_me_desc: "Desenvolvedor Full-Stack com +7 anos de experiência, especializado em **aplicações móveis e web**, com forte atuação em **React Native**, **Node.js**, **Firebase**, **PostgreSQL** e **GCP**. Experiência com apps B2B e B2C de grande escala. Busco oportunidades desafiadoras em ambientes inovadores com foco em qualidade e entrega de valor.",
+        once_job: "Programador React Native & Programador Backend",
+        once_job_desc_1: "Manutenção e evolução de apps móveis B2C para clubes como Palmeiras e Orlando City.",
+        once_job_desc_2: "Stack: React Native, Firebase (Auth, Firestore, Storage, FCM), GCP.",
+        once_job_desc_3: "Publicações na Play Store e App Store + CodePush.",
+        once_job_desc_4: "Integração de APIs REST, desenvolvimento de backends seguros e escaláveis em Node.js.",
+        once_job_desc_5: "Mentoria de engenheiros juniores e participação ativa em code reviews.",
+        twice_job: "Programador Mobile",
+        twice_job_desc_1: "Criação de apps B2B offline-first multiplataforma.",
+        twice_job_desc_2: "Utilização de SQLite, React Native, Redux e Appium.",
+        twice_job_desc_3: "Interface com APIs externas, protótipos no Figma, testes unitários e E2E.",
+        three_job: "Programador",
+        three_job_desc_1: "Desenvolvimento de chats, bots, widgets e APIs REST.",
+        three_job_desc_2: "Integrações com fornecedores e suporte a sistemas existentes.",
+        education: "Formação",
+        education_desc: "Ciência da Computação",
+        projects_desc_1_1: "App Giro Sou Clamper",
+        projects_desc_1_2: " – App oficial para clube de relacionamento.",
+        projects_desc_2_1: "Apps do Palmeiras / Cruzeiro / Orlando City",
+        projects_desc_2_2: " – Aplicativos oficiais integrados ao Salesforce.",
+        projects_desc_3_1: "TeamUp",
+        projects_desc_3_2: " – App B2B offline-first com catálogo e estoque para grandes marcas.",
+        projects_desc_4_1: "PediGrendene",
+        projects_desc_4_2: " – App de pedidos offline-first para representantes da Grendene.",
       },
       en: {
         name: "My Name",
         job: "Web Developer | Frontend Specialist",
         description: "I have experience in HTML, CSS, JavaScript, and web application development.",
         skill: "Skill",
-        lang: "EN"
+        lang: "EN",
+        about_me: "About Me",
+        experience: "Experience",
+        projects: "Projects",
+        about_me_desc: "Full-Stack Developer with 7+ years of experience, specialized in mobile and web applications, with strong expertise in React Native, Node.js, Firebase, PostgreSQL, and GCP. Experienced in building large-scale B2B and B2C apps. Currently seeking challenging opportunities in innovative environments with a strong focus on quality and value delivery.",
+        once_job: "React Native Developer & Backend Developer",
+        once_job_desc_1: "Maintenance and enhancement of B2C mobile apps for clubs such as Palmeiras and Orlando City.",
+        once_job_desc_2: "Stack: React Native, Firebase (Auth, Firestore, Storage, FCM), GCP.",
+        once_job_desc_3: "App publishing on Play Store and App Store + CodePush updates.",
+        once_job_desc_4: "Integration of REST APIs and development of secure, scalable backends using Node.js.",
+        once_job_desc_5: "Mentorship of junior engineers and active participation in code reviews.",
+        twice_job: "Developer Mobile",
+        twice_job_desc_1: "Development of cross-platform, offline-first B2B applications.",
+        twice_job_desc_2: "Used SQLite, React Native, Redux, and Appium.",
+        twice_job_desc_3: "Integration with external APIs, prototyping in Figma, unit and end-to-end testing.",
+        three_job: "Developer",
+        three_job_desc_1: "Development of chats, bots, widgets, and REST APIs.",
+        three_job_desc_2: "Integrations with third-party providers and support for existing systems.",
+        education: "Education",
+        education_desc: "Computer Science",
+        projects_desc_1_1: "Giro Sou Clamper App",
+        projects_desc_1_2: " – Official app for a loyalty club.",
+        projects_desc_2_1: "Palmeiras / Cruzeiro / Orlando City Apps",
+        projects_desc_2_2: " – Official apps integrated with Salesforce.",
+        projects_desc_3_1: "TeamUp",
+        projects_desc_3_2: " – Offline-first B2B app with catalog and inventory for major brands.",
+        projects_desc_4_1: "PediGrendene",
+        projects_desc_4_2: " – Offline-first order app for Grendene representatives.",
+        
       }
     };
 
     function toggleDarkMode() {
       document.body.classList.toggle("dark-mode");
-      const modeStatus = document.getElementById("mode-status");
-      modeStatus.textContent = document.body.classList.contains("dark-mode") ? "Escuro" : "Claro";
     }
 
     function changeLanguage(lang) {
       document.getElementById("skill").textContent = texts[lang].skill;
+      document.getElementById("about_me").textContent = texts[lang].about_me;
+      document.getElementById("experience").textContent = texts[lang].experience;
+      document.getElementById("projects").textContent = texts[lang].projects;
+      document.getElementById("about_me_desc").textContent = texts[lang].about_me_desc;
+      
+      document.getElementById("once_job").textContent = texts[lang].once_job;
+      document.getElementById("once_job_desc_1").textContent = texts[lang].once_job_desc_1;
+      document.getElementById("once_job_desc_2").textContent = texts[lang].once_job_desc_2;
+      document.getElementById("once_job_desc_3").textContent = texts[lang].once_job_desc_3;
+      document.getElementById("once_job_desc_4").textContent = texts[lang].once_job_desc_4;
+      document.getElementById("once_job_desc_5").textContent = texts[lang].once_job_desc_5;
+      
+      document.getElementById("twice_job").textContent = texts[lang].twice_job;
+      document.getElementById("twice_job_desc_1").textContent = texts[lang].twice_job_desc_1;
+      document.getElementById("twice_job_desc_2").textContent = texts[lang].twice_job_desc_2;
+      document.getElementById("twice_job_desc_3").textContent = texts[lang].twice_job_desc_3;
 
+      document.getElementById("three_job").textContent = texts[lang].three_job;
+      document.getElementById("three_job_desc_1").textContent = texts[lang].three_job_desc_1;
+      document.getElementById("three_job_desc_2").textContent = texts[lang].three_job_desc_2;
+      
+      document.getElementById("education").textContent = texts[lang].education;
+      document.getElementById("education_desc").textContent = texts[lang].education_desc;
+
+      document.getElementById("projects_desc_1_1").textContent = texts[lang].projects_desc_1_1;
+      document.getElementById("projects_desc_1_2").textContent = texts[lang].projects_desc_1_2;
+      
+      document.getElementById("projects_desc_2_1").textContent = texts[lang].projects_desc_2_1;
+      document.getElementById("projects_desc_2_2").textContent = texts[lang].projects_desc_2_2;
+
+      document.getElementById("projects_desc_3_1").textContent = texts[lang].projects_desc_3_1;
+      document.getElementById("projects_desc_3_2").textContent = texts[lang].projects_desc_3_2;
+
+      document.getElementById("projects_desc_4_1").textContent = texts[lang].projects_desc_4_1;
+      document.getElementById("projects_desc_4_2").textContent = texts[lang].projects_desc_4_2;
+
+      
       document.getElementById("lang-status").textContent = texts[lang].lang;
     }
 
@@ -294,10 +412,6 @@
       menu.classList.toggle("show");
     }
 
-    function closeMenu() {
-      let menu = document.getElementById("menu");
-      menu.classList.remove("show");
-    }
   </script>
 </body>
 
