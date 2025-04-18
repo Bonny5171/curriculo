@@ -20,6 +20,12 @@
       text-align: left;
     }
   }
+
+  @media print {
+    .no-print {
+      display: none !important;
+    }
+  }
   
   :root {
     --bg-color: #f0f0f0;
@@ -56,20 +62,13 @@
     color: var(--highlight-color);
   }
   
-  
-  .info-line {
-    padding-left: 20px;
-  }
-
-
   nav a:hover {
     color: #007bff;
   }
 
-
   nav ul {
     display: flex;
-    gap: 20px;
+    gap: 15px;
     justify-content: center;
   }
 
@@ -98,6 +97,7 @@
     display: flex;
     justify-content: space-between; /* Distribui os itens nas extremidades e no centro */
     align-items: center;
+    flex-direction: row;
     padding: 10px 20px;
   }
 
@@ -107,6 +107,7 @@
     text-decoration: underline;
     text-align: center;
     flex: 1; /* Faz com que o centro ocupe espaço proporcional */
+    padding: 10px 20px;
   }
 
   .center:hover {
@@ -116,6 +117,7 @@
   /* Mantendo largura fixa para os textos da esquerda e direita */
   .left, .right {
     width: 250px;
+    padding: 10px 20px;
     text-align: left;
   }
 
@@ -147,11 +149,13 @@
 
 <body class="dark-mode">
 
-  <div class="menu-container" id="menuContainer">
-    <div class="menu" id="menu">
-      <button onclick="toggleDarkMode()">🌙 Alternar Modo</button>
-      <button onclick="changeLanguage('pt')">🇧🇷</button>
-      <button onclick="changeLanguage('en')">🇺🇸</button>
+  <div class="no-print">
+    <div class="menu-container" id="menuContainer">
+      <div class="menu" id="menu">
+        <button id="changemode" onclick="toggleDarkMode()">🌙 Alternar Modo</button>
+        <button onclick="changeLanguage('pt')">🇧🇷</button>
+        <button onclick="changeLanguage('en')">🇺🇸</button>
+      </div>
     </div>
   </div>
 
@@ -323,6 +327,7 @@
         projects_desc_3_2: " – App B2B offline-first com catálogo e estoque para grandes marcas.",
         projects_desc_4_1: "PediGrendene",
         projects_desc_4_2: " – App de pedidos offline-first para representantes da Grendene.",
+        changemode: "🌙 Alternar Modo",
       },
       en: {
         name: "My Name",
@@ -357,7 +362,7 @@
         projects_desc_3_2: " – Offline-first B2B app with catalog and inventory for major brands.",
         projects_desc_4_1: "PediGrendene",
         projects_desc_4_2: " – Offline-first order app for Grendene representatives.",
-        
+        changemode: "🌙 Change Mode",
       }
     };
 
@@ -403,7 +408,7 @@
       document.getElementById("projects_desc_4_1").textContent = texts[lang].projects_desc_4_1;
       document.getElementById("projects_desc_4_2").textContent = texts[lang].projects_desc_4_2;
 
-      
+      document.getElementById("changemode").textContent = texts[lang].changemode;
       document.getElementById("lang-status").textContent = texts[lang].lang;
     }
 
