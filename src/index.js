@@ -8,7 +8,7 @@ const port = 3000;
 app.use(express.static('src'));
 
 app.get('/', (req, res) => {
-  const filePath = path.join(__dirname, 'index_full.html');
+  const filePath = path.join(__dirname, 'index_gpt.html');
   fs.readFile(filePath, 'utf8', (err, data) => {
     if (err) {
       return res.status(500).send('Erro ao ler o arquivo');
@@ -29,7 +29,7 @@ app.get('/short', (req, res) => {
   });
 });
 
-app.get('/gpt', (req, res) => {
+app.get('/full', (req, res) => {
   const filePath = path.join(__dirname, 'index_gpt.html');
   fs.readFile(filePath, 'utf8', (err, data) => {
     if (err) {
