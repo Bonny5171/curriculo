@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timeline Horizontal Ligada</title>
+  <style>
+    .timeline {
+      background-color: aqua;
+      display: flex;
+      flex-wrap: wrap;
+      padding: 20px;
+      gap: 20px;
+      position: relative;
+    }
+    .event {
+      position: relative;
+      min-width: 150px;
+      background: #eee;
+      padding: 10px;
+      border-radius: 5px;
+      text-align: center;
+    }
+    .event:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      right: -20px; /* distância do gap */
+      width: 20px;  /* duas vezes o gap */
+      height: 2px;
+      background: black;
+    }
+  </style>
+  
+  <script>
+
+    // Write your code here
+    const getCost = '';
+    let gNodes  = 4
+
+    //let gFrom   = [1, 1, 2, 3];
+    //let gTo     = [2, 3, 4, 4];
+    //let gWeight = [20,5,30,40];
+
+    let gFrom   = [1,2,5];
+    let gTo     = [2,3];
+    let gWeight = [20,5,30,40];
+
+    for (var i = 0; i < gFrom.length; i++) {
+      const from  = gFrom[i];
+      const to    = gTo[i];
+      const weght = gWeight[i];
+
+    }
+
+  </script>
+</head>
+<body>
+
+  <h2>Minha Timeline</h2>
+
+  <div class="timeline">
+    <div class="event">2005<br>Comecei a escola</div>
+    <div class="event">2007<br>Primeira viagem</div>
+    <div class="event">2009<br>Ganhei um prêmio</div>
+    <div class="event">2010<br>Comecei a jogar futebol</div>
+    <div class="event">2012<br>Formatura ensino fundamental</div>
+    <div class="event">2013<br>Primeiro estágio</div>
+    <div class="event">2014<br>Aprendi programação</div>
+    <div class="event">2015<br>Meu primeiro projeto</div>
+  </div>
+
+</body>
+</html>
